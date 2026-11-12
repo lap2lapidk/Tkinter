@@ -1,0 +1,41 @@
+from tkinter import *
+file=open("C:/Users/isaac/Documents/Youngwonks/Tkinter/submission.txt",'w')
+root=Tk()
+def clear():
+    for entry in [fn,ln,age,grade,city]:
+        entry.delete(0,END)
+def submit():
+    s=''
+    for entry in [fn,ln,age,grade,city]:
+        a=entry.get()
+        s+=a
+        file.write(a)
+root.title("Questionaire")
+label=Label(root,text='Please enter the following')
+label.pack()
+label=Label(root,text='First Name')
+label.pack()
+fn=Entry(root)
+fn.pack()
+label=Label(root,text='Last Name')
+label.pack()
+ln=Entry(root)
+ln.pack()
+label=Label(root,text='Age')
+label.pack()
+age=Entry(root)
+age.pack()
+label=Label(root,text='Grade')
+label.pack()
+grade=Entry(root)
+grade.pack()
+label=Label(root,text='City')
+label.pack()
+city=Entry(root)
+city.pack()
+c=Button(root,text='Clear',fg='red',command=clear)
+c.pack(side=RIGHT)
+s=Button(root,text='Submit',fg='blue',command=submit)
+s.pack(side=LEFT)
+root.mainloop()
+file.close()
